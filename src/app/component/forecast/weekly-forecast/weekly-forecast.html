@@ -1,0 +1,29 @@
+<section class="daily-section">
+  <h2>5 Day Forecast</h2>
+  <div class="daily-list">
+    <div *ngFor="let day of data" class="daily-row">
+      <div class="day-date">
+        <p class="day">
+          {{ day.day }}
+        </p>
+        <p class="date">
+          {{ day.date }}
+        </p>
+      </div>
+
+      <div class="day-icon">
+        <img [src]="day.icon" alt="Weather Icon" />
+      </div>
+      <div class="daily-minmax">
+        <div class="daily-min">
+          <div>Min</div>
+          <p class="min">{{ day.min }}°</p>
+        </div>
+        <div class="daily-max">
+          <div>Max</div>
+          <p class="max">{{ day.max }}°</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

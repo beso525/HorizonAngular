@@ -1,0 +1,45 @@
+@if (data) {
+<section class="td-section">
+  <div class="td-weather">
+    <div class="td-weather-left">
+      <div class="td-img">
+        <img [src]="data.icon" alt="Weather Icon" />
+      </div>
+      <div class="td-temp">
+        <h1>{{ data.temp }}°</h1>
+        <p>{{ data.desc }}</p>
+      </div>
+    </div>
+    <div class="td-weather-right">
+      <div class="td-minmax-city">
+        <div class="td-city">
+          <h2>{{ data.city }}, {{ data.country }}</h2>
+        </div>
+
+        <div class="td-minmax">
+          <div class="td-min">
+            <p>Min</p>
+            <p>{{ data.min }}°</p>
+          </div>
+          <div class="td-max">
+            <p>Max</p>
+            <p>{{ data.max }}°</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="td-details">
+    <div class="td-details-card" *ngFor="let detail of todayDetails">
+      <div class="detail-icon">
+        <span class="material-symbols-outlined" [style]="detail.color">{{ detail.icon }}</span>
+      </div>
+      <div class="card-details">
+        <p>{{ detail.label }}</p>
+        <p>{{ detail.value }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+}

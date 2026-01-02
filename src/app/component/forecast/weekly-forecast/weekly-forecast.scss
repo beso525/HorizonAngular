@@ -1,0 +1,57 @@
+.daily-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.daily-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    padding: 1rem 2.5rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.day-date {
+    display: flex;
+    line-height: 1.1;
+    align-items: center;
+    gap: 1rem;
+}
+
+.day {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.date {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.day-icon img {
+    width: 85px;
+}
+
+
+.daily-minmax {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    gap: 2rem;
+}
+
+.daily-minmax * {
+    min-width: 80px;
+}
+.min {
+    opacity: 0.6;
+}
+
+.max {
+    font-weight: 600;
+}

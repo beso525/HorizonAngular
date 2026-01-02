@@ -1,0 +1,48 @@
+.hour-list {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 12px 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0) transparent;
+    transition: 300ms;
+}
+
+.hour-list:hover {
+    scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+}
+
+.hour-list::-webkit-scrollbar {
+    height: 6px;
+}
+
+.hour-list::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+}
+
+.hourly-card {
+    display: flex;
+    flex: 0 0 80px;
+    flex-direction: column;
+    padding: 10px;
+    gap: 5px;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    scroll-snap-align: start;
+}
+
+.hourly-card h3 {
+    font-size: small;
+    font-weight: 500;
+}
+
+.hourly-card img {
+    width: 60px;
+}
+
+.hourly-card p {
+    font-size: 0.85rem;
+}

@@ -1,0 +1,8 @@
+<!-- app.html -->
+<main>
+  <app-search (citySelected)="onCitySelected($event)"></app-search>
+  <app-toggle (unitChanged)="onUnitToggle()"></app-toggle>
+  <app-today-forecast [data]="todayData"></app-today-forecast>
+  <app-hourly-forecast [data]="hourlyData"></app-hourly-forecast>
+  <app-weekly-forecast [data]="weeklyData"></app-weekly-forecast>
+</main>

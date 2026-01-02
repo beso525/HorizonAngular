@@ -1,0 +1,58 @@
+.td-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.td-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 10px;
+}
+
+.td-details-card {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.card-details > * {
+    margin: 10px;
+}
+
+.detail-icon {
+    align-self: center;
+}
+
+.td-weather {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.td-weather-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.td-img {
+    align-self: center;
+}
+
+.td-temp > h1 {
+    font-size: xxx-large;
+    margin: 0;
+}
+
+.td-temp > p {
+    color: grey;
+    font-size: large;
+}
+
+.td-minmax {
+    display: flex;
+    gap: 3rem;
+}

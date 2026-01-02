@@ -1,0 +1,12 @@
+<section class="hourly-section">
+  <h2>Hourly</h2>
+  <div class="hour-list">
+    <div *ngFor="let hour of data" class="hourly-card">
+      <h3>
+        {{ hour.hour }}
+      </h3>
+      <img [src]="hour.icon" alt="Weather Icon" />
+      <p>{{ hour.temp }}°</p>
+    </div>
+  </div>
+</section>
