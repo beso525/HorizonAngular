@@ -1,3 +1,4 @@
+// hourly.scss
 .hour-list {
     display: flex;
     gap: 12px;
@@ -23,15 +24,16 @@
 }
 
 .hourly-card {
-    display: flex;
-    flex: 0 0 80px;
-    flex-direction: column;
-    padding: 10px;
-    gap: 5px;
-    align-items: center;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    scroll-snap-align: start;
+  display: flex;
+  flex: 0 0 80px;
+  flex-direction: column;
+  padding: 10px;
+  gap: 5px;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4rem;
+  scroll-snap-align: start;
+  background-color: rgba(95, 158, 160, 0.596);
 }
 
 .hourly-card h3 {
@@ -45,4 +47,11 @@
 
 .hourly-card p {
     font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+    .hourly-card {
+        flex: 0 0 6px;
+        padding: 6px;
+    }
 }

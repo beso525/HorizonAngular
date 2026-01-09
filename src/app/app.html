@@ -1,8 +1,13 @@
 <!-- app.html -->
-<main>
-  <app-search (citySelected)="onCitySelected($event)"></app-search>
-  <app-toggle (unitChanged)="onUnitToggle()"></app-toggle>
-  <app-today-forecast [data]="todayData"></app-today-forecast>
-  <app-hourly-forecast [data]="hourlyData"></app-hourly-forecast>
-  <app-weekly-forecast [data]="weeklyData"></app-weekly-forecast>
-</main>
+<div class="app-container">
+  <header>
+    <h1>horizon</h1>
+    <app-search (citySelected)="onCitySelected($event)"></app-search>
+    <app-toggle (unitChanged)="onUnitToggle()"></app-toggle>
+  </header>
+  <main>
+    <app-today-forecast [data]="todayData"></app-today-forecast>
+    <app-hourly-forecast [data]="hourlyData"></app-hourly-forecast>
+    <app-weekly-forecast [data]="weeklyData"></app-weekly-forecast>
+  </main>
+</div>

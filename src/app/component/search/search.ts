@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './search.html',
   styleUrl: './search.scss',
 })
+
 export class SearchComponent {
   @Output() citySelected = new EventEmitter<string>();
   submit(city: string) {

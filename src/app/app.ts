@@ -3,12 +3,13 @@ import { ChangeDetectorRef, Component, computed } from '@angular/core';
 import { NavbarComponent } from "./component/navbar/navbar";
 import { SearchComponent } from './component/search/search';
 import { ToggleComponent } from './component/toggle/toggle';
-import { WeatherService } from './service/weather.service';
+import { WeatherService } from './service/weather-service/weather.service';
 import { CommonModule } from '@angular/common';
 import { TodayForecast } from './component/forecast/today-forecast/today-forecast';
 import { HourlyForecast } from "./component/forecast/hourly-forecast/hourly-forecast";
 import { WeeklyForecast } from './component/forecast/weekly-forecast/weekly-forecast';
-import { TodayData, HourlyData, WeeklyData } from "./model/weather.model";
+import { HourlyData, WeeklyData } from "./model/weather.model";
+import { UnitService } from './service/unit-service/unit-service';
 
 @Component({
   selector: 'app-root',
@@ -20,19 +21,33 @@ import { TodayData, HourlyData, WeeklyData } from "./model/weather.model";
 
 export class App {
 
-  isMetric = true;
   weatherData: any;
   todayData: any;
   hourlyData: HourlyData[] = [];
   weeklyData: WeeklyData[] = [];
 
-  constructor(private weatherService : WeatherService, private cdr: ChangeDetectorRef) {}
+  constructor(private weatherService : WeatherService, private cdr: ChangeDetectorRef, private unitService: UnitService) {}
+  
+  ngOnInit() {
+    if (!navigator.geolocation){ 
+      this.onCitySelected('Halifax') 
+      return;
+    }
+    navigator.geolocation.getCurrentPosition((pos) => {
+      let lon = pos.coords.longitude;
+      let lat = pos.coords.latitude;
+      this.getCityFromCoords(lon, lat);
+    },
+  () => {
+    this.onCitySelected('Halifax');
+  }) 
+  }
 
   onCitySelected(city: string) {
-    const units = this.isMetric ? 'metric' : 'imperial';
+    const units = this.unitService.isMetric() ? 'metric' : 'imperial';
 
     if (!city) return;    
-    this.weatherService.getForecast(city, units).subscribe({
+    this.weatherService.getForecastWithCity(city, units).subscribe({
       next: data => {
         this.weatherData = data;
         this.buildToday(data);
@@ -47,8 +62,20 @@ export class App {
 
   }
 
+  getCityFromCoords (lon: number, lat: number) {
+    const units = this.unitService.isMetric() ? 'metric' : 'imperial';
+
+    this.weatherService.getForecastWithCoords(lon, lat, units).subscribe({
+      next: data => {
+        this.onCitySelected(data.city.name);
+      }, 
+      error: () => {}
+      }
+    )
+  }
+
   onUnitToggle() {
-    this.isMetric = !this.isMetric;
+    this.unitService.toggle();
     if (this.weatherData?.city?.name) {
       this.onCitySelected(this.weatherData.city.name);
     }
@@ -64,7 +91,6 @@ export class App {
       desc: todayInfo.weather[0].description,
       icon: `https://openweathermap.org/img/wn/${todayInfo.weather[0].icon}@2x.png`,
       gust: todayInfo.wind.gust,
-      uvindex: todayInfo.main.uvindex,
       feels: todayInfo.main.feels_like,
       min: todayInfo.main.temp_min,
       max: todayInfo.main.temp_max,

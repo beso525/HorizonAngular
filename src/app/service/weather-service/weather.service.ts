@@ -13,9 +13,15 @@ export class WeatherService {
 
   constructor (private http: HttpClient) {}
 
-  getForecast(city: string, units:  'metric' | 'imperial'): Observable<any>{
+  getForecastWithCity(city: string, units:  'metric' | 'imperial'): Observable<any>{
     return this.http.get<any>(
       `${this.baseUrl}?q=${city}&units=${units}&appid=${this.apiKey}`
+    );
+  }
+
+  getForecastWithCoords(lon: number, lat: number, units:  'metric' | 'imperial'): Observable<any> {
+    return this.http.get<any>(
+      `${this.baseUrl}?lon=${lon}&lat=${lat}&units=${units}&appid=${this.apiKey}`
     );
   }
 }

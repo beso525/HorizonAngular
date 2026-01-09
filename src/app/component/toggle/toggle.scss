@@ -1,16 +1,17 @@
 /* toggle button */
 .toggleDiv {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
-  font-size: 2em;
+  gap: 5px;
+  height: 100%;
 }
 
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 50px;
+  height: 24px;
 }
 
 .switch input {
@@ -34,8 +35,8 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height: 16px;
+  width: 16px;
   left: 4px;
   bottom: 4px;
   background-color: white;
@@ -43,7 +44,7 @@
 }
 
 input:checked + .slider {
-  background-color: #f36c21;
+  background-color: #70c9e4;
 }
 
 input:focus + .slider {
@@ -51,9 +52,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider::before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(25px);
+  -ms-transform: translateX(25px);
+  transform: translateX(25px);
 }
 
 .slider.round {

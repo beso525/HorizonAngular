@@ -1,13 +1,27 @@
 /* search bar */
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
 #searchInput {
-  width: 30%;
-  padding: 10px;
+  height: 30px;
+  border: 1px solid rgb(65, 65, 90);
+  color: white;
   background-color: #b7b7b721;
-  border-radius: 20px;
-  align-self: center;
+  border-radius: 10px;
+  padding-left: 10px;
+  width: 80%;
+  text-align: center;
+}
+
+#searchInput:focus {
+  outline: none;
 }
 
 /* submit button */
 #submitBtn {
-  display: none;
 }

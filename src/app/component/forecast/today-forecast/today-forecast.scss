@@ -1,15 +1,17 @@
+// today.scss
 .td-section {
     display: flex;
     flex-direction: column;
     width: 100%;
+    gap: 2rem;
 }
 
 .td-details {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    justify-content: space-between;
     gap: 1rem;
-    padding: 10px;
+    justify-items: center;
+    align-items: center;
 }
 
 .td-details-card {
@@ -42,17 +44,48 @@
     align-self: center;
 }
 
+.td-img img {
+    width: 10rem;
+}
+
 .td-temp > h1 {
     font-size: xxx-large;
-    margin: 0;
+    margin: 10px;
 }
 
 .td-temp > p {
     color: grey;
     font-size: large;
+    margin: 5px;
 }
 
 .td-minmax {
     display: flex;
     gap: 3rem;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.td-minmax p {
+    justify-self: center;
+}
+
+.td-minmax p:last-child {
+    opacity: 0.6;
+}
+
+@media (max-width: 480px) {
+    .td-weather {
+        flex-direction: column-reverse;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .td-img img {
+        width: 7rem;
+    }
+
+    .td-details {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
 }
