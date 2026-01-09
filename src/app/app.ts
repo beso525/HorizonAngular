@@ -1,6 +1,5 @@
 // app.ts
 import { ChangeDetectorRef, Component, computed } from '@angular/core';
-import { NavbarComponent } from "./component/navbar/navbar";
 import { SearchComponent } from './component/search/search';
 import { ToggleComponent } from './component/toggle/toggle';
 import { WeatherService } from './service/weather-service/weather.service';
