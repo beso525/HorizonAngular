@@ -3,11 +3,11 @@
   <header>
     <h1>horizon</h1>
     <app-search (citySelected)="onCitySelected($event)"></app-search>
-    <app-toggle (unitChanged)="onUnitToggle()"></app-toggle>
+    <app-toggle (click)="onUnitToggle()"></app-toggle>
   </header>
   <main>
-    <app-today-forecast [data]="todayData"></app-today-forecast>
-    <app-hourly-forecast [data]="hourlyData"></app-hourly-forecast>
-    <app-weekly-forecast [data]="weeklyData"></app-weekly-forecast>
+    <app-today-forecast [data]="todayData()"></app-today-forecast>
+    <app-hourly-forecast [data]="hourlyData()"></app-hourly-forecast>
+    <app-weekly-forecast [data]="weeklyData()"></app-weekly-forecast>
   </main>
 </div>

@@ -1,16 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UnitService {
-  private metric = true;
 
-  isMetric() {
-    return this.metric;
-  }
+  isMetric = signal<boolean>(true);
 
   toggle() {
-    this.metric = !this.metric;
+    this.isMetric.update((prev) => !prev);
+    console.log('unitservice: metric is ', this.isMetric());
   }
 }
