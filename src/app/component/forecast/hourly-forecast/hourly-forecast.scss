@@ -1,26 +1,26 @@
 // hourly.scss
 .hour-list {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    padding: 12px 0;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0) transparent;
-    transition: 300ms;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 12px 0;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0) transparent;
+  transition: 300ms;
 }
 
 .hour-list:hover {
-    scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
 }
 
 .hour-list::-webkit-scrollbar {
-    height: 6px;
+  height: 6px;
 }
 
 .hour-list::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
 }
 
 .hourly-card {
@@ -37,21 +37,21 @@
 }
 
 .hourly-card h3 {
-    font-size: small;
-    font-weight: 500;
+  font-size: small;
+  font-weight: 500;
 }
 
 .hourly-card img {
-    width: 60px;
+  width: 60px;
 }
 
 .hourly-card p {
-    font-size: 0.85rem;
+  font-size: 0.85rem;
 }
 
 @media (max-width: 600px) {
-    .hourly-card {
-        flex: 0 0 6px;
-        padding: 6px;
-    }
+  .hourly-card {
+    flex: 0 0 6px;
+    padding: 6px;
+  }
 }
