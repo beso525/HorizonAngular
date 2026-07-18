@@ -9,8 +9,8 @@ export interface TodayData {
   humidity: number;
   pressure: number;
   wind: number;
-  sunrise: Date;
-  sunset: Date;
+  sunrise: string;
+  sunset: string;
   gust: number;
   icon: string;
 }

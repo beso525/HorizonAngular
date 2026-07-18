@@ -44,7 +44,22 @@ export class App {
 
   todayData = computed(() => {
     const data = this.weatherData();
-    if (!data) return {};
+    if (!data) return {
+      city: '',
+      country: '',
+      desc: '',
+      temp: 0,
+      feels: 0,
+      min: 0,
+      max: 0,
+      humidity: 0,
+      pressure: 0,
+      wind: 0,
+      sunrise: '',
+      sunset: '',
+      gust: 0,
+      icon: ''
+    };
 
     const todayInfo = data.list[0];
     const timezone = data.city.timezone;
